@@ -38,7 +38,7 @@ public class Login extends javax.swing.JFrame {
             sql="SELECT * FROM usuarios";
         }
         else{
-            sql="SELECT * FROM usuarios WHERE (Usuario='"+valor+"'  AND Contraseña='"+valor+"')";
+            sql="SELECT * FROM usuarios WHERE (Nombre='"+valor+"'  AND Contraseña='"+valor+"')";
         }  
         
         String []datos=new String [4];

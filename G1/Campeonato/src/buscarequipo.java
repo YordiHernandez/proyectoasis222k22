@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 
+
 public class buscarequipo extends javax.swing.JFrame {
 
     /**
