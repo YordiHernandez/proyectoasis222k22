@@ -143,8 +143,13 @@ public class partido extends javax.swing.JFrame {
         jTextField9 = new javax.swing.JTextField();
         btbuscar = new javax.swing.JButton();
         BTINGRESAR2 = new javax.swing.JButton();
+<<<<<<< HEAD
         NuevoPu = new javax.swing.JButton();
         ActualizarPunt = new javax.swing.JButton();
+=======
+        BTNUEVOPUNTAJE = new javax.swing.JButton();
+        BTACTUALIZARPUNTAJE = new javax.swing.JButton();
+>>>>>>> 2b3e85adf6a05f5179a40e598e48b3cf7fb5e2e4
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -242,6 +247,12 @@ public class partido extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 2, 14)); // NOI18N
         jLabel3.setText("Equipo Local");
 
+        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField8ActionPerformed(evt);
+            }
+        });
+
         jLabel8.setFont(new java.awt.Font("Trebuchet MS", 2, 14)); // NOI18N
         jLabel8.setText("Gol Local");
 
@@ -304,6 +315,7 @@ public class partido extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
         NuevoPu.setText("Nuevo Puntaje");
         NuevoPu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -315,6 +327,19 @@ public class partido extends javax.swing.JFrame {
         ActualizarPunt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ActualizarPuntActionPerformed(evt);
+=======
+        BTNUEVOPUNTAJE.setText("NUEVO PUNTAJE");
+        BTNUEVOPUNTAJE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNUEVOPUNTAJEActionPerformed(evt);
+            }
+        });
+
+        BTACTUALIZARPUNTAJE.setText("ACTUALIZAR PUNTAJE");
+        BTACTUALIZARPUNTAJE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTACTUALIZARPUNTAJEActionPerformed(evt);
+>>>>>>> 2b3e85adf6a05f5179a40e598e48b3cf7fb5e2e4
             }
         });
 
@@ -330,15 +355,20 @@ public class partido extends javax.swing.JFrame {
                         .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(BTNUEVOPUNTAJE)
+                                        .addGap(26, 26, 26)
+                                        .addComponent(BTACTUALIZARPUNTAJE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+<<<<<<< HEAD
                                             .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -352,6 +382,18 @@ public class partido extends javax.swing.JFrame {
                                         .addComponent(NuevoPu)
                                         .addGap(37, 37, 37)
                                         .addComponent(ActualizarPunt)))
+=======
+                                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(7, 7, 7)
+>>>>>>> 2b3e85adf6a05f5179a40e598e48b3cf7fb5e2e4
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
@@ -370,7 +412,7 @@ public class partido extends javax.swing.JFrame {
                                         .addComponent(BTINGRESAR2)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(BTINGRESAR1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                                         .addComponent(btmostrar)
                                         .addGap(32, 32, 32))))
                             .addGroup(layout.createSequentialGroup()
@@ -396,7 +438,7 @@ public class partido extends javax.swing.JFrame {
                                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(24, Short.MAX_VALUE))
+                        .addContainerGap(17, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -435,10 +477,17 @@ public class partido extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+<<<<<<< HEAD
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(NuevoPu)
                             .addComponent(ActualizarPunt))
+=======
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BTNUEVOPUNTAJE)
+                            .addComponent(BTACTUALIZARPUNTAJE))
+>>>>>>> 2b3e85adf6a05f5179a40e598e48b3cf7fb5e2e4
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -571,8 +620,46 @@ public class partido extends javax.swing.JFrame {
         
     }//GEN-LAST:event_BTINGRESAR2ActionPerformed
 
+<<<<<<< HEAD
     private void ActualizarPuntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarPuntActionPerformed
          conectar cc=new conectar();
+=======
+    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField8ActionPerformed
+
+    private void BTNUEVOPUNTAJEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNUEVOPUNTAJEActionPerformed
+       
+        conectar cc=new conectar();
+        java.sql.Connection cn=cc.conexion();
+        try{
+            PreparedStatement pst=cn.prepareStatement("call sumarPN (?,?,?,?);");
+            //FileInputStream archivofoto;
+            pst.setString(1,jTextField2.getText());
+            pst.setString(2,jTextField7.getText());
+            pst.setString(2,jTextField4.getText());
+            pst.setString(2,jTextField8.getText());
+
+            int a=pst.executeUpdate();
+
+            if(a>0){
+                JOptionPane.showMessageDialog(null,"Registro exitoso");
+
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Error al agregar");
+            }
+        }catch(Exception e){
+        }
+        
+        
+        
+    }//GEN-LAST:event_BTNUEVOPUNTAJEActionPerformed
+
+    private void BTACTUALIZARPUNTAJEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTACTUALIZARPUNTAJEActionPerformed
+        
+        conectar cc=new conectar();
+>>>>>>> 2b3e85adf6a05f5179a40e598e48b3cf7fb5e2e4
         java.sql.Connection cn=cc.conexion();
         try{
             PreparedStatement pst=cn.prepareStatement("CALL sumar_partidos(?,?);");
@@ -591,6 +678,7 @@ public class partido extends javax.swing.JFrame {
             }
         }catch(Exception e){
         }
+<<<<<<< HEAD
     }//GEN-LAST:event_ActualizarPuntActionPerformed
 
     private void NuevoPuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoPuActionPerformed
@@ -619,6 +707,13 @@ public class partido extends javax.swing.JFrame {
           
 
     }//GEN-LAST:event_NuevoPuActionPerformed
+=======
+        
+        
+        
+        
+    }//GEN-LAST:event_BTACTUALIZARPUNTAJEActionPerformed
+>>>>>>> 2b3e85adf6a05f5179a40e598e48b3cf7fb5e2e4
 
     /**
      * @param args the command line arguments
@@ -657,11 +752,19 @@ public class partido extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
     private javax.swing.JButton ActualizarPunt;
     private javax.swing.JButton BTINGRESAR;
     private javax.swing.JButton BTINGRESAR1;
     private javax.swing.JButton BTINGRESAR2;
     private javax.swing.JButton NuevoPu;
+=======
+    private javax.swing.JButton BTACTUALIZARPUNTAJE;
+    private javax.swing.JButton BTINGRESAR;
+    private javax.swing.JButton BTINGRESAR1;
+    private javax.swing.JButton BTINGRESAR2;
+    private javax.swing.JButton BTNUEVOPUNTAJE;
+>>>>>>> 2b3e85adf6a05f5179a40e598e48b3cf7fb5e2e4
     private javax.swing.JButton btbuscar;
     private javax.swing.JButton btmostrar;
     private javax.swing.JButton btmostrar1;

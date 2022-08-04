@@ -30,7 +30,11 @@ public final class Clasificacion extends javax.swing.JFrame {
         conectar cc=new conectar();
         Connection cn=cc.conexion();
         DefaultTableModel modelo=new DefaultTableModel();
+<<<<<<< HEAD
        
+=======
+
+>>>>>>> 2b3e85adf6a05f5179a40e598e48b3cf7fb5e2e4
         modelo.addColumn("Id_Clasificacion");
         modelo.addColumn("Equipo");
         modelo.addColumn("Ganados");
@@ -38,7 +42,11 @@ public final class Clasificacion extends javax.swing.JFrame {
         modelo.addColumn("Empatados");
         modelo.addColumn("Partidos Jugados");
         modelo.addColumn("Puntaje");
+<<<<<<< HEAD
           
+=======
+
+>>>>>>> 2b3e85adf6a05f5179a40e598e48b3cf7fb5e2e4
         jTable1.setModel(modelo);
         String sql="";
         if (valor.equals(""))
@@ -47,8 +55,13 @@ public final class Clasificacion extends javax.swing.JFrame {
         }
         else{
             sql="SELECT Id_Posicion, equipos.Nombre, Ganados, Perdidos, Empatados, Pj, Puntos FROM partidos_ge INNER JOIN equipos USING(Id_Equipo) WHERE (Id_Posicion='"+valor+"') ORDER BY Puntos";
+<<<<<<< HEAD
         }  
         
+=======
+        }
+
+>>>>>>> 2b3e85adf6a05f5179a40e598e48b3cf7fb5e2e4
         String []datos=new String [7];
         try{
             Statement st=cn.createStatement();
@@ -61,8 +74,13 @@ public final class Clasificacion extends javax.swing.JFrame {
             datos[4]=rs.getString(5);
             datos[5]=rs.getString(6);
             datos[6]=rs.getString(7);
+<<<<<<< HEAD
            
             
+=======
+
+
+>>>>>>> 2b3e85adf6a05f5179a40e598e48b3cf7fb5e2e4
             modelo.addRow(datos);
             }
             jTable1.setModel(modelo);
