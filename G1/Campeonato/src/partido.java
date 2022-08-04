@@ -143,6 +143,8 @@ public class partido extends javax.swing.JFrame {
         jTextField9 = new javax.swing.JTextField();
         btbuscar = new javax.swing.JButton();
         BTINGRESAR2 = new javax.swing.JButton();
+        NuevoPu = new javax.swing.JButton();
+        ActualizarPunt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -302,6 +304,20 @@ public class partido extends javax.swing.JFrame {
             }
         });
 
+        NuevoPu.setText("Nuevo Puntaje");
+        NuevoPu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NuevoPuActionPerformed(evt);
+            }
+        });
+
+        ActualizarPunt.setText("Actualizar Puntaje");
+        ActualizarPunt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ActualizarPuntActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -331,7 +347,11 @@ public class partido extends javax.swing.JFrame {
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(NuevoPu)
+                                        .addGap(37, 37, 37)
+                                        .addComponent(ActualizarPunt)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
@@ -415,6 +435,10 @@ public class partido extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(NuevoPu)
+                            .addComponent(ActualizarPunt))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -547,6 +571,55 @@ public class partido extends javax.swing.JFrame {
         
     }//GEN-LAST:event_BTINGRESAR2ActionPerformed
 
+    private void ActualizarPuntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarPuntActionPerformed
+         conectar cc=new conectar();
+        java.sql.Connection cn=cc.conexion();
+        try{
+            PreparedStatement pst=cn.prepareStatement("CALL sumar_partidos(?,?);");
+            FileInputStream archivofoto;
+            pst.setString(1,jTextField2.getText());
+            pst.setString(2,jTextField7.getText());
+
+            int a=pst.executeUpdate();
+
+            if(a<0){
+                JOptionPane.showMessageDialog(null,"Registro exitoso");
+
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Error al agregar");
+            }
+        }catch(Exception e){
+        }
+    }//GEN-LAST:event_ActualizarPuntActionPerformed
+
+    private void NuevoPuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoPuActionPerformed
+        
+        conectar cc=new conectar();
+        java.sql.Connection cn=cc.conexion();
+        try{
+            PreparedStatement pst=cn.prepareStatement("call sumarPN (?,?,?,?);");
+            FileInputStream archivofoto;
+            pst.setString(1,jTextField2.getText());
+            pst.setString(2,jTextField7.getText());
+            pst.setString(2,jTextField4.getText());
+            pst.setString(2,jTextField8.getText());
+
+            int a=pst.executeUpdate();
+
+            if(a>0){
+                JOptionPane.showMessageDialog(null,"Registro exitoso");
+
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Error al agregar");
+            }
+        }catch(Exception e){
+        }
+          
+
+    }//GEN-LAST:event_NuevoPuActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -582,10 +655,13 @@ public class partido extends javax.swing.JFrame {
         });
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ActualizarPunt;
     private javax.swing.JButton BTINGRESAR;
     private javax.swing.JButton BTINGRESAR1;
     private javax.swing.JButton BTINGRESAR2;
+    private javax.swing.JButton NuevoPu;
     private javax.swing.JButton btbuscar;
     private javax.swing.JButton btmostrar;
     private javax.swing.JButton btmostrar1;

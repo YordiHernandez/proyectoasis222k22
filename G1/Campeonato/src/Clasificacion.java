@@ -31,26 +31,37 @@ public final class Clasificacion extends javax.swing.JFrame {
         Connection cn=cc.conexion();
         DefaultTableModel modelo=new DefaultTableModel();
        
-        modelo.addColumn("Id");
-        modelo.addColumn("Deporte");
+        modelo.addColumn("Id_Clasificacion");
+        modelo.addColumn("Equipo");
+        modelo.addColumn("Ganados");
+        modelo.addColumn("Perdidos");
+        modelo.addColumn("Empatados");
+        modelo.addColumn("Partidos Jugados");
+        modelo.addColumn("Puntaje");
           
         jTable1.setModel(modelo);
         String sql="";
         if (valor.equals(""))
         {
-            sql="SELECT * FROM deportes";
+            sql="SELECT Id_Posicion, equipos.Nombre, Ganados, Perdidos, Empatados, Pj, Puntos FROM partidos_ge INNER JOIN equipos USING(Id_Equipo) ORDER BY Puntos DESC";
         }
         else{
-            sql="SELECT * FROM deportes WHERE (Id_Deporte='"+valor+"'  OR Descripcion='"+valor+"')";
+            sql="SELECT Id_Posicion, equipos.Nombre, Ganados, Perdidos, Empatados, Pj, Puntos FROM partidos_ge INNER JOIN equipos USING(Id_Equipo) WHERE (Id_Posicion='"+valor+"') ORDER BY Puntos";
         }  
         
-        String []datos=new String [2];
+        String []datos=new String [7];
         try{
             Statement st=cn.createStatement();
             ResultSet rs=st.executeQuery(sql);
             while(rs.next()){
             datos[0]=rs.getString(1);
             datos[1]=rs.getString(2);
+            datos[2]=rs.getString(3);
+            datos[3]=rs.getString(4);
+            datos[4]=rs.getString(5);
+            datos[5]=rs.getString(6);
+            datos[6]=rs.getString(7);
+           
             
             modelo.addRow(datos);
             }
@@ -77,8 +88,6 @@ public final class Clasificacion extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         btmostrar = new javax.swing.JButton();
-        btbuscar = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -120,13 +129,6 @@ public final class Clasificacion extends javax.swing.JFrame {
             }
         });
 
-        btbuscar.setText("Buscar");
-        btbuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btbuscarActionPerformed(evt);
-            }
-        });
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -142,14 +144,6 @@ public final class Clasificacion extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(127, Short.MAX_VALUE)
-                .addComponent(btmostrar)
-                .addGap(43, 43, 43)
-                .addComponent(btbuscar)
-                .addGap(53, 53, 53)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(273, 273, 273))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -157,8 +151,11 @@ public final class Clasificacion extends javax.swing.JFrame {
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(112, 112, 112)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(326, 326, 326)
+                        .addComponent(btmostrar)))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,12 +163,9 @@ public final class Clasificacion extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btmostrar)
-                    .addComponent(btbuscar)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(69, 69, 69)
+                .addGap(33, 33, 33)
+                .addComponent(btmostrar)
+                .addGap(54, 54, 54)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(51, Short.MAX_VALUE))
         );
@@ -188,10 +182,6 @@ public final class Clasificacion extends javax.swing.JFrame {
       mostrardatos("");  
            
     }//GEN-LAST:event_btmostrarActionPerformed
-
-    private void btbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btbuscarActionPerformed
-        mostrardatos(jTextField1.getText());
-    }//GEN-LAST:event_btbuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,18 +219,14 @@ public final class Clasificacion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btbuscar;
     private javax.swing.JButton btmostrar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
-    private void mostrardatos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
 }

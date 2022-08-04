@@ -35,17 +35,17 @@ public class BuscarJug extends javax.swing.JFrame {
         modelo.addColumn("Apellido");
         modelo.addColumn("Año_Nacimiento");
         modelo.addColumn("Numero_Camisola");
-        modelo.addColumn("Id_Equipo");
+        modelo.addColumn("Equipo");
           
         jTable2.setModel(modelo);
         String sql="";
         if (valor.equals(""))
         {
-            sql = "select * from jugador";
-           //sql="SELECT jugador.Id_Jugador,jugador.Nombre,jugador.Apellido,jugador.Año_Nacimiento,jugador.Numero_Camisola,equipos.Nombre, jugador.Foto FROM jugador INNER JOIN equipos USING(Id_Equipo)";
+            //sql = "select * from jugador";
+           sql="SELECT jugador.Id_Jugador,jugador.Nombre,jugador.Apellido,jugador.Año_Nacimiento,jugador.Numero_Camisola,equipos.Nombre, jugador.Foto FROM jugador INNER JOIN equipos USING(Id_Equipo)";
         }
         else{
-            sql="SELECT * FROM jugador WHERE (Id_Jugador='"+valor+"'  OR Nombre='"+valor+"')";
+            sql="SELECT jugador.Id_Jugador,jugador.Nombre,jugador.Apellido,jugador.Año_Nacimiento,jugador.Numero_Camisola,equipos.Nombre, jugador.Foto FROM jugador INNER JOIN equipos USING(Id_Equipo) WHERE (Id_Jugador='"+valor+"'  OR Nombre='"+valor+"')";
         }  
         
         String []datos=new String [6];
@@ -86,7 +86,7 @@ public class BuscarJug extends javax.swing.JFrame {
         modelo.addColumn("Apellido");
         modelo.addColumn("Año_Nacimiento");
         modelo.addColumn("Numero_Camisola");
-        modelo.addColumn("Id_Equipo");
+        modelo.addColumn("Equipo");
           
         jTable1.setModel(modelo);
         String sql="";
@@ -227,6 +227,12 @@ public class BuscarJug extends javax.swing.JFrame {
             }
         });
 
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -356,6 +362,10 @@ public class BuscarJug extends javax.swing.JFrame {
             Logger.getLogger(BuscarJug.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btbuscarActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
